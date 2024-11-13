@@ -7,6 +7,13 @@ class Discount:
     Метод __init__:
         конструктор объекта класса Discount с атрибутами description (описание скидки) 
         и discount_percent (процент скидки).
+
+    Метод set_type_discount:
+        Статическая функция. Принимает цену и скидку. Возвращает цену с учетом скидки.
+
+    Метод __str__:
+        Функция возвращает строковое представление объекта класса Discount. 
+        Возвращает наименование скидки и величину скидки в %
     '''
     def __init__(self, description: str, discount_percent: int):
         self.description = description

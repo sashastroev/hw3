@@ -1,3 +1,5 @@
+from classes.discount import Discount
+
 class Customer:
     '''
     Класс Customer
@@ -15,7 +17,7 @@ class Customer:
         Функция возвращает сумму по всем заказам у покупателя (объекта класса Custoner)
     
     Метод __str__:
-        Функция возвращает имя клиента и список товаров в ценой со скидкой. 
+        Функция возвращает строковое представление объекта Customer и содержит имя клиента и список товаров с ценой со скидкой. 
         Так же выводит сумму по всем заказам клиента с учетом скидки.
         Если заказов у клиента нет, то выводит вместо списка заказов сообщение: Заказов пока не  было
     '''
@@ -34,7 +36,7 @@ class Customer:
         out = f'\nИмя: {self.name}'
         if self.orders != []:
             for i in self.orders.products:
-                final_price = i.price * (1 - self.orders.discount.discount_percent / 100)
+                final_price = Discount.set_type_discount(i.price, self.orders.discount)
                 out += f'\n\tТовар {i.name} со скидкой {final_price}'
             out += f'\nСумма заказов с учетом скидки: {self.orders.total_price()}'
         else:
