@@ -1,5 +1,3 @@
-from classes.discount import Discount
-
 class Order:
     '''
     Класс Order
@@ -23,7 +21,7 @@ class Order:
         self.discount = discount
 
     def total_price(self):
-        return sum(Discount.set_type_discount(product.price, self.discount) for product in self.products)
+        return sum(self.discount.set_type_discount(product.price, self.discount) for product in self.products)
     
     def __str__(self):
         out = 'товары:'

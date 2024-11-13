@@ -1,5 +1,3 @@
-from classes.discount import Discount
-
 class Customer:
     '''
     Класс Customer
@@ -36,7 +34,7 @@ class Customer:
         out = f'\nИмя: {self.name}'
         if self.orders != []:
             for i in self.orders.products:
-                final_price = Discount.set_type_discount(i.price, self.orders.discount)
+                final_price = self.orders.discount.set_type_discount(i.price, self.orders.discount)
                 out += f'\n\tТовар {i.name} со скидкой {final_price}'
             out += f'\nСумма заказов с учетом скидки: {self.orders.total_price()}'
         else:
